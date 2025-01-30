@@ -1,9 +1,9 @@
 package com.akash.bank.ui.borrow
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -37,20 +37,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import android.util.Log
 import com.akash.bank.R
+import com.akash.bank.ui.theme.getGradientColors
 
 @Composable
 fun BorrowScreen(onBack: () -> Unit) {
-    val gradientColors = listOf(
-        Color(0xFFF0F0F0),
-        Color(0xFFE0E0E0)
-    )
+
 
     Surface(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.verticalGradient(gradientColors)),
+            .background(brush = Brush.verticalGradient(getGradientColors())),
         color = Color.Transparent
     ) {
         Column(modifier = Modifier.fillMaxSize()) {

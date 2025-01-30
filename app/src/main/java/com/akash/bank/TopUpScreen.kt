@@ -1,5 +1,6 @@
 package com.akash.bank.ui.topup
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,19 +33,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import android.util.Log
+import com.akash.bank.ui.theme.getGradientColors
 
 @Composable
 fun TopUpScreen(onBack: () -> Unit) {
-    val gradientColors = listOf(
-        Color(0xFFF0F0F0),
-        Color(0xFFE0E0E0)
-    )
+    
 
     Surface(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.verticalGradient(gradientColors)),
+            .background(brush = Brush.verticalGradient(getGradientColors())),
         color = Color.Transparent
     ) {
         Column(modifier = Modifier.fillMaxSize()) {

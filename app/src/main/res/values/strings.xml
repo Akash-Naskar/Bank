@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Bank</string>
+    <string name="home">Home</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="fill_card_details">Fill Card Details</string>
 </resources>
