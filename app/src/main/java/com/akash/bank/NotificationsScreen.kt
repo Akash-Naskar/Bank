@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,18 +30,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.akash.bank.ui.theme.getGradientColors
 
 @Composable
 fun NotificationsScreen(onBack: () -> Unit, notifications: List<NotificationData>) {
-    val gradientColors = listOf(
-        Color(0xFFF0F0F0),
-        Color(0xFFE0E0E0)
-    )
+    
 
     Surface(
         modifier = Modifier
             .fillMaxSize()
-            .background(brush = Brush.verticalGradient(gradientColors)),
+            .background(brush = Brush.verticalGradient(getGradientColors())),
         color = Color.Transparent
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
