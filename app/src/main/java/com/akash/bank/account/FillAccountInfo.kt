@@ -28,10 +28,13 @@ import kotlinx.serialization.Serializable
 object FillAccountInfoRoute
 
 @Composable
-fun FillAccountInfoScreen(modifier: Modifier = Modifier, navHostController: NavHostController) {
+fun FillAccountInfoScreen(
+    modifier: Modifier = Modifier,
+    navHostController: NavHostController
+) {
     val context = LocalContext.current
     val backCallback = remember {
-        object : OnBackPressedCallback(true) {
+        object : OnBackPressedCallback(false) {
             override fun handleOnBackPressed() {
 
             }
@@ -43,16 +46,16 @@ fun FillAccountInfoScreen(modifier: Modifier = Modifier, navHostController: NavH
     }
 
 
-    Scaffold (
+    Scaffold(
 
-    ){ innerPadding ->
+    ) { innerPadding ->
         Box(
             Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-        ){
+        ) {
             Text(
-                text = "Fill Account Info",
+                text = "Using Default Account Details Because it is not Implemented",
                 style = MaterialTheme.typography.labelLarge,
                 modifier = Modifier.align(Alignment.Center)
             )
@@ -61,7 +64,7 @@ fun FillAccountInfoScreen(modifier: Modifier = Modifier, navHostController: NavH
                     navHostController.navigate(MainScreenRoute)
                 },
                 modifier = Modifier.align(Alignment.BottomCenter)
-            ){
+            ) {
                 Text("Go to Main Screen")
             }
         }

@@ -22,6 +22,7 @@ class TemporaryAuthRepo(
 
     init {
         accounts.add(TemporaryAuthWrapper("2", "", ""))
+        accounts.add(TemporaryAuthWrapper("1", "q", "q"))
     }
 
     override suspend fun login(

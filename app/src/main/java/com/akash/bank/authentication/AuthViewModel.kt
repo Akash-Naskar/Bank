@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class AuthViewModel(
     private val authRepo: AuthRepo,
     private val accountRepo: AccountRepo
-): ViewModel() {
+) : ViewModel() {
 
 
     private val _state: MutableStateFlow<FormState> = MutableStateFlow(FormState())
@@ -72,7 +72,6 @@ class AuthViewModel(
                 _state.value.loginPassword
             )) {
                 is Result.Error -> {
-//                    Log.d("AuthViewModel", "login: ${r.error}")
                     _state.update { it.copy(error = r.error.toString()) }
                 }
                 is Result.Success -> {
@@ -92,6 +91,7 @@ class AuthViewModel(
                 is Result.Error -> {
                     _state.update { it.copy(error = id.error.toString()) }
                 }
+
                 is Result.Success -> {
                     LocalResources.setId(id.data)
                     accountRepo.putAccountInfo(_state.value.resisterEmail, id.data)
@@ -102,7 +102,7 @@ class AuthViewModel(
     }
 
     fun onAction(formAction: FormAction) {
-        when(formAction){
+        when (formAction) {
             FormAction.GoToLoginClicked -> onLoginClicked()
             FormAction.GoToRegisterClicked -> onRegisterClicked()
             is FormAction.Login -> login(formAction.navHostController)
@@ -126,6 +126,7 @@ class AuthViewModel(
     private fun onUpdateResisterPassword(password: String) {
         _state.update { it.copy(resisterPassword = password) }
     }
+
     private fun onUpdateResisterEmail(email: String) {
         _state.update { it.copy(resisterEmail = email) }
     }
